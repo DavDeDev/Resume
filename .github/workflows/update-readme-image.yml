@@ -9,25 +9,33 @@ jobs:
   update_image:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+
     steps:
       - name: 🔄 Checkout repository
-        uses: actions/checkout@v2
-
+        uses: actions/checkout@v4
+        
       - name: 🐍 Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
+      - name: 📦 Install Poppler
+        run: sudo apt-get install -y poppler-utils
 
       - name: 📦 Install dependencies
-        run: pip install pdf2image PIL
+        run: pip install pdf2image
 
       - name: 🖼️ Convert PDF to Image
         run: |
-          python ./.github/pdfToimage.py
+          python ${{ github.workspace }}/.github/pdfToImage.py
 
-      - name: 📸 Commit image
-        run: |
-          git config --global user.name 'DavDeDev'
-          git config --global user.email 'DavDeDev@users.noreply.github.com'
-          git commit -am "Automated report"
-          git push
+        
+      - name: 📂 List contents of directory
+        run: ls -la
+
+      - name: Push back
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Automated Change
+

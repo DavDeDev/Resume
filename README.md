@@ -8,7 +8,7 @@
   small automation that automatically updates this picture
     <br />
     <br/>
-    <a href="path/to/your/pdf/file.pdf" download>
+    <a href="DavidPietrocola-resume.pdf" download>
   <button style="padding: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer;">
     Download PDF
   </button>
