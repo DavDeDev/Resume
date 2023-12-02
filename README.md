@@ -1,11 +1,11 @@
-
 <a name="readme-top"></a>
+
 <div align="center">
 <h2 align="center">Resume · David Pietrocola</h2>
   <p align="center">
-    Decided to version my resume to keep track my applications <br>
+    Version-controlled resume! 🚀<br>
   <strong>+</strong> <br>
-  small automation that automatically updates this picture
+   Automated PDF compilation and dynamic image updates
     <br />
     <br/>
     <a href="DavidPietrocola-resume.pdf" download>
@@ -17,11 +17,10 @@
 
 <a href="">LinkedIn</a> ·
 <a href="https://davidpietrocola.com/#contact"><strong>Contact Me »</strong></a>
+
   </p>
 </div>
 
-
 <p align="center">
-  <img src="DavidPietrocola-resume.png" alt="Alt text">
+  <img src="DavidPietrocola-resume.png" alt="DavidPietrocola-resume.png">
 </p>
-
