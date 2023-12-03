@@ -1,6 +1,10 @@
-name: Update Resume Image
+name: Update README.MD
 
 on:
+  workflow_run:
+    workflows: ["Bump Version & Release"]
+    types:
+      - completed
   push:
     branches:
       - '*'

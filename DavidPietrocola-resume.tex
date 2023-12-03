@@ -3,10 +3,10 @@
 \AddToHook{shipout/foreground}{%
   \put(.5\baselineskip, -\paperheight + .5\baselineskip) {%
     \footnotesize
+    \input{version.tex} (\today). 
     This resume is crafted using LaTeX and is versioned at \href{https://github.com/DavDeDev/Resume}{github.com/DavDeDev/Resume}.
   }
 }
-
 
 \begin{document}
 
@@ -16,7 +16,6 @@
 \input{column_one.tex}
 \hfill
 \input{column_two.tex}
-
 
 
 

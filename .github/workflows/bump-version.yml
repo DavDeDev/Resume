@@ -1,0 +1,36 @@
+name: Bump Version & Release
+on: 
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Bump Version
+        default: v1.0.0
+        required: true
+jobs:
+  bump-version:
+    name: 🚀 Bump Package Version
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - name: 🔄 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🔄 Update version.tex
+        run: echo "${{ github.event.inputs.version }}" > version.tex
+
+      - name: 📝 Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add version.tex
+          git commit -m "Bump version to ${{ github.event.inputs.version }}"
+
+      - name: 🏷️ Create tag
+        run: git tag -a "${{ github.event.inputs.version }}" -m "Version ${{ github.event.inputs.version }}"
+
+      - name: 🚀 Push changes and tag
+        run: |
+          git push
+          git push origin "${{ github.event.inputs.version }}"
