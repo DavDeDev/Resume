@@ -53,12 +53,7 @@
 \usepackage[UKenglish]{isodate}
 \setlength{\TPHorizModule}{1mm}
 \setlength{\TPVertModule}{1mm}
-\newcommand{\lastupdated}{
-  \begin{textblock}{60}(155,5)
-    \color{date}\fontspec[Path = fonts/raleway/]{Raleway-ExtraLight}\fontsize{8pt}{10pt}\selectfont
-    Last Updated on the \today
-  \end{textblock}
-}
+
 
 
 

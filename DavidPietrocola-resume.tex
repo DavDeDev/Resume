@@ -1,12 +1,23 @@
 \documentclass[]{DavidPietrocola-resume}
 
+\AddToHook{shipout/foreground}{%
+  \put(.5\baselineskip, -\paperheight + .5\baselineskip) {%
+    \footnotesize
+    This resume is crafted using LaTeX and is versioned at \href{https://github.com/DavDeDev/Resume}{github.com/DavDeDev/Resume}.
+  }
+}
+
+
 \begin{document}
 
-\input{sections/last_updated.tex}
+
 \input{sections/title_name.tex}
 
 \input{column_one.tex}
 \hfill
 \input{column_two.tex}
+
+
+
 
 \end{document}
