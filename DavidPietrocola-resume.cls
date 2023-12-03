@@ -121,3 +121,7 @@
   \sectionsep
   \sectionsep
 }
+
+\newcommand{\hackathon}[4]{
+  #1 & \textbf{#2} & \href{#4}{#3}
+}
