@@ -1,13 +1,13 @@
 % Intro Options
-\ProvidesClass{DavidPietrocola-resume}[2014/04/30 CV class]
+\ProvidesClass{DavidPietrocola-resume}[2023/12/03 CV class]
 \NeedsTeXFormat{LaTeX2e}
 \DeclareOption{print}{\def\@cv@print{}}
-\DeclareOption*{%
+\DeclareOption*{
   \PassOptionsToClass{\CurrentOption}{article}
 }
 \ProcessOptions\relax
 \LoadClass{article}
- 
+
 % Package Imports
 \usepackage[hmargin=1.25cm, vmargin=0.75cm]{geometry}
 \usepackage[hidelinks]{hyperref}
@@ -16,9 +16,9 @@
 \renewcommand\refname{\vskip -1.5cm}
 
 % Color definitions
-\usepackage[usenames,dvipsnames]{xcolor} 
-\definecolor{date}{HTML}{666666} 
-\definecolor{primary}{HTML}{111111} 
+\usepackage[usenames,dvipsnames]{xcolor}
+\definecolor{date}{HTML}{666666}
+\definecolor{primary}{HTML}{111111}
 \definecolor{headings}{HTML}{6A6A6A}
 \definecolor{subheadings}{HTML}{333333}
 
@@ -35,28 +35,28 @@
 \setlength{\TPHorizModule}{1mm}
 \setlength{\TPVertModule}{1mm}
 \newcommand{\lastupdated}{\begin{textblock}{60}(155,5)
-\color{date}\fontspec[Path = fonts/raleway/]{Raleway-ExtraLight}\fontsize{8pt}{10pt}\selectfont 
-Last Updated on \today
-\end{textblock}}
+    \color{date}\fontspec[Path = fonts/raleway/]{Raleway-ExtraLight}\fontsize{8pt}{10pt}\selectfont
+    Last Updated on \today
+  \end{textblock}}
 
 % Name command
 \newcommand{\namesection}[3]{
-\centering{
-\fontsize{40pt}{60pt}
-\fontspec[Path = fonts/lato/]{Lato-Hai}\selectfont #1 
-\fontspec[Path = fonts/lato/]{Lato-Lig}\selectfont #2
-} \\[5pt]
-\centering{
-\color{headings}
-\fontspec[Path = fonts/raleway/]{Raleway-Medium}\fontsize{13pt}{14pt}\selectfont #3}
-\noindent\makebox[\linewidth]{\color{headings}\rule{\paperwidth}{0.4pt}}
-\vspace{-15pt}
+  \centering{
+    \fontsize{40pt}{60pt}
+    \fontspec[Path = fonts/lato/]{Lato-Hai}\selectfont #1
+    \fontspec[Path = fonts/lato/]{Lato-Lig}\selectfont #2
+  } \\[5pt]
+  \centering{
+    \color{headings}
+    \fontspec[Path = fonts/raleway/]{Raleway-Medium}\fontsize{13pt}{14pt}\selectfont #3}
+  \noindent\makebox[\linewidth]{\color{headings}\rule{\paperwidth}{0.4pt}}
+  \vspace{-15pt}
 }
 
 
 % Section seperators 
 \usepackage{titlesec}
-\titlespacing{\section}{0pt}{0pt}{0pt} 
+\titlespacing{\section}{0pt}{0pt}{0pt}
 \titlespacing{\subsection}{0pt}{0pt}{0pt}
 \newcommand{\sectionsep}{\vspace{8pt}}
 \newcommand{\smallsep}{\vspace{2pt}}
@@ -64,27 +64,27 @@ Last Updated on \today
 
 % Headings command
 \titleformat{\section}{\color{headings}
-\scshape\fontspec[Path = fonts/lato/]{Lato-Lig}\fontsize{16pt}{24pt}\selectfont \raggedright\uppercase}{}{0em}{}
+  \scshape\fontspec[Path = fonts/lato/]{Lato-Lig}\fontsize{16pt}{24pt}\selectfont \raggedright\uppercase}{}{0em}{}
 
 % Subeadings command
 \titleformat{\subsection}{
-\color{subheadings}\fontspec[Path = fonts/lato/]{Lato-Bol}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase}{}{0em}{}
+  \color{subheadings}\fontspec[Path = fonts/lato/]{Lato-Bol}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase}{}{0em}{}
 
 \newcommand{\runsubsection}[1]{
-\color{subheadings}\fontspec[Path = fonts/lato/]{Lato-Bol}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase {#1} \normalfont}
+  \color{subheadings}\fontspec[Path = fonts/lato/]{Lato-Bol}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase {#1} \normalfont}
 
 % Descriptors command
 \newcommand{\descript}[1]{
-\color{subheadings}\raggedright\scshape\fontspec[Path = fonts/raleway/]{Raleway-Medium}\fontsize{11pt}{13pt}\selectfont {#1 \\} \normalfont}
+  \color{subheadings}\raggedright\scshape\fontspec[Path = fonts/raleway/]{Raleway-Medium}\fontsize{11pt}{13pt}\selectfont {#1 \\} \normalfont}
 
 % Location command
 \newcommand{\location}[1]{
-\color{headings}\raggedright\fontspec[Path = fonts/raleway/]{Raleway-Medium}\fontsize{10pt}{12pt}\selectfont {#1\\} \normalfont}
+  \color{headings}\raggedright\fontspec[Path = fonts/raleway/]{Raleway-Medium}\fontsize{10pt}{12pt}\selectfont {#1\\} \normalfont}
 
 % Bullet Lists with fewer gaps command
 \newenvironment{tightemize}{
-\vspace{-\topsep}\begin{itemize}\itemsep1pt \parskip0pt \parsep0pt}
-{\end{itemize}\vspace{-\topsep}}
+  \vspace{-\topsep}\begin{itemize}\itemsep1pt \parskip0pt \parsep0pt}
+    {\end{itemize}\vspace{-\topsep}}
 
 % Date command
 \usepackage[absolute]{textpos}
@@ -94,10 +94,10 @@ Last Updated on \today
 
 % Subject Command
 \newcommand{\subject}[1]{
-\descript{RE: #1}
-\sectionsep
-\sectionsep
-\sectionsep
+  \descript{RE: #1}
+  \sectionsep
+  \sectionsep
+  \sectionsep
 }
 
 % Today formatted
@@ -105,19 +105,19 @@ Last Updated on \today
 \usepackage[en-US]{datetime2}
 \DTMsetstyle{en-US}
 \newcommand{\customToday}{%
-\DTMdisplaydate{\the\year}{\the\month}{\the\day\textsuperscript{th}}{10}
+  \DTMdisplaydate{\the\year}{\the\month}{\the\day\textsuperscript{th}}{10}
 }
 
 % Address
 \newcommand{\address}[4]{
-\sectionsep
-\sectionsep
-\sectionsep
-\textbf{#1}\\
-#2\\
-#3\\
-#4\\
-\sectionsep
-\sectionsep
-\sectionsep
+  \sectionsep
+  \sectionsep
+  \sectionsep
+  \textbf{#1}\\
+  #2\\
+  #3\\
+  #4\\
+  \sectionsep
+  \sectionsep
+  \sectionsep
 }
