@@ -1,11 +1,32 @@
 % Intro Options
 \ProvidesClass{DavidPietrocola-resume}[2023/12/03 CV class]
 \NeedsTeXFormat{LaTeX2e}
-\DeclareOption{print}{\def\@cv@print{}}
+
+% Color definitions
+\usepackage[usenames,dvipsnames]{xcolor}
+\newcommand{\setcolors}{
+  \definecolor{date}{HTML}{666666}
+  \definecolor{primary}{HTML}{111111}
+  \definecolor{headings}{HTML}{6A6A6A}
+  \definecolor{subheadings}{HTML}{333333}
+}
+\newcommand{\setprintcolors}{
+  \definecolor{date}{HTML}{111111}
+  \definecolor{primary}{HTML}{111111}
+  \definecolor{headings}{HTML}{111111}
+  \definecolor{subheadings}{HTML}{111111}
+}
+
+\DeclareOption{print}{
+  \renewcommand{\setcolors}{\setprintcolors}
+}
 \DeclareOption*{
   \PassOptionsToClass{\CurrentOption}{article}
 }
 \ProcessOptions\relax
+
+\setcolors
+
 \LoadClass{article}
 
 % Package Imports
@@ -15,12 +36,6 @@
 \usepackage{cite}
 \renewcommand\refname{\vskip -1.5cm}
 
-% Color definitions
-\usepackage[usenames,dvipsnames]{xcolor}
-\definecolor{date}{HTML}{666666}
-\definecolor{primary}{HTML}{111111}
-\definecolor{headings}{HTML}{6A6A6A}
-\definecolor{subheadings}{HTML}{333333}
 
 
 % Set main fonts
@@ -37,7 +52,10 @@
 \newcommand{\lastupdated}{\begin{textblock}{60}(155,5)
     \color{date}\fontspec[Path = fonts/raleway/]{Raleway-ExtraLight}\fontsize{8pt}{10pt}\selectfont
     Last Updated on \today
-  \end{textblock}}
+  \end{textblock}
+}
+
+
 
 % Name command
 \newcommand{\namesection}[3]{
