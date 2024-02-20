@@ -5,9 +5,6 @@ on:
     workflows: ["Bump Version & Release"]
     types:
       - completed
-  push:
-    branches:
-      - '*'
 
 jobs:
   update_image:
