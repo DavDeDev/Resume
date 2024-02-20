@@ -15,23 +15,25 @@ jobs:
         run: |
           current_version=$(cat version.tex)
 
-          new_version=$(awk -F. -v OFS=. '{$NF++; print}' <<< "${current_version:1}")
+          new_version=$(awk -F. -v OFS=. '{$NR++;$NF=0; print}' <<< "${current_version:1}")
 
           new_version="v$new_version"
 
           echo "$new_version" > version.tex
+
+          echo "new_version=$new_version" >> "$GITHUB_ENV"
 
       - name: 📝 Commit changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add version.tex
-          git commit -m "Bump version to ${{ github.event.inputs.version }}"
+          git commit -m "Bump version to $new_version"
 
       - name: 🏷️ Create tag
-        run: git tag -a "${{ github.event.inputs.version }}" -m "Version ${{ github.event.inputs.version }}"
+        run: git tag -a "$(cat version.tex)" -m "Version $(cat version.tex)"
 
       - name: 🚀 Push changes and tag
         run: |
           git push
-          git push origin "${{ github.event.inputs.version }}"
+          git push origin "$(cat version.tex)"
