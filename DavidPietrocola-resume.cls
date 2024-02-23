@@ -134,5 +134,5 @@
 }
 
 \newcommand{\hackathon}[4]{
-  #1 & \textbf{#2} & \href{#4}{#3}
+  \href{#4}{#3}& \textbf{#2} & #1 
 }
